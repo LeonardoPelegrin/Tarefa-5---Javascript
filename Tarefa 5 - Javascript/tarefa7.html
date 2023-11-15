@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de carro de fabrica</title>
+</head>
+<body>
+
+<div>
+    <label for="custoFabrica">Custo de Fábrica:</label>
+    <input type="number" id="custoFabrica">
+
+    <label for="percDistribuidor">% Distribuidor:</label>
+    <input type="number" id="percDistribuidor">
+
+    <label for="percImpostos">% Impostos:</label>
+    <input type="number" id="percImpostos">
+
+    <button onclick="calcularCustoFinal()">Calcular</button>
+
+    <label for="valorFinal">Valor Final:</label>
+    <input type="text" id="valorFinal" readonly>
+</div>
+
+<script>
+    function calcularCustoFinal() {
+        // Obter valores dos inputs
+        var custoFabrica = parseFloat(document.getElementById('custoFabrica').value);
+        var percDistribuidor = parseFloat(document.getElementById('percDistribuidor').value);
+        var percImpostos = parseFloat(document.getElementById('percImpostos').value);
+
+        // Calcula o custo final do veiculo
+        var custoFinal = custoFabrica + (custoFabrica * percDistribuidor / 100) + (custoFabrica * percImpostos / 100);
+
+        // Mostra o preço do carro final
+        document.getElementById('valorFinal').value = custoFinal.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

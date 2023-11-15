@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-md-3">
+      <label class="form-label">Num. 1</label>
+      <input id="num1" type="number" class="form-control" />
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Num. 2</label>
+      <input id="num2" type="number" class="form-control" />
+    </div>
+    <div class="col-md-2">
+      <label for="" class="form-label">Operação</label>
+      <select id="operacao" class="form-select">
+        <option value="+">Somar</option>
+        <option value="-">Subtrair</option>
+        <option value="*">Multiplicar</option>
+        <option value="/">Dividir</option>
+      </select>
+    </div>
+    <div class="col-md-1">
+      <button
+        style="margin-top: 30px"
+        class="btn btn-primary"
+        onclick="calcular()"
+      >
+        Calcular
+      </button>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Resultado</label>
+      <input id="resultado" type="number" class="form-control" />
+    </div>
+  </div>
+  
+  <script>
+    function calcular() {
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+      var operacao = document.getElementById('operacao').value;
+      var resultadoElement = document.getElementById('resultado');
+  
+      switch (operacao) {
+        case '+':
+          resultadoElement.value = num1 + num2;
+          break;
+        case '-':
+          resultadoElement.value = num1 - num2;
+          break;
+        case '*':
+          resultadoElement.value = num1 * num2;
+          break;
+        case '/':
+          if (num2 !== 0) {
+            resultadoElement.value = num1 / num2;
+          } else {
+            alert("Divisão por zero não é permitida.");
+          }
+          break;
+        default:
+          alert("Operação inválida.");
+          break;
+      }
+    }
+  </script>

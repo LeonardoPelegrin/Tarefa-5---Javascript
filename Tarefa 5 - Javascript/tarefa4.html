@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+
+  
+  
+    </style>
+</head>
+<body>
+
+<div class="output">
+    <h2>Tabuada</h2>
+
+    <label for="numeroInserido">Insira um número:</label>
+    <input type="number" id="numeroInserido">
+    <button onclick="mostrarTabuada()">Gerar Tabuada</button>
+
+    <div id="tabuadaOutput"></div>
+
+    <script>
+        function mostrarTabuada() {
+            // Obtem o valor do campo de entrada
+            var numero = parseInt(document.getElementById('numeroInserido').value);
+
+            // Verificar se o valor inserido é válido
+            if (isNaN(numero)) {
+                alert("Por favor, insira um número válido.");
+                return;
+            }
+            // Limpar a saída antes de exibir uma nova tabuada
+            document.getElementById('tabuadaOutput').innerHTML = '';
+
+            // Mostra a tabuada do número inserido pelo usuario
+            for (var i = 1; i <= 10; i++) {
+                document.getElementById('tabuadaOutput').innerHTML += numero + ' x ' + i + ' = ' + (numero * i) + '<br>';
+            }
+        }
+    </script>
+</div>
+
+</body>
+</html>
